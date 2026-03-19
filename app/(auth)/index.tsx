@@ -1,25 +1,25 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image, SafeAreaView, ScrollView, StatusBar } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView, StatusBar } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { LinearGradient } from 'expo-linear-gradient';
-
 
 export default function WelcomeScreen() {
   const router = useRouter();
 
   const handleSignIn = () => {
-    router.replace('/(tabs)'); // Temporarily go to tabs for demo
+    router.replace('/(tabs)');
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.container} edges={['top', 'bottom']}>
       <StatusBar barStyle="dark-content" />
       <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
         
         {/* Header Motifs & Flag */}
         <View style={styles.headerRow}>
            <View style={styles.motifContainer}>
-              <Text style={styles.horseMotif}>🐎 🏮 🏇</Text> {/* Fallback icons, will replace with design */}
+              <Text style={styles.horseMotif}>🐎 🏮 🏇</Text>
            </View>
            <Image source={{ uri: 'https://flagcdn.com/w40/us.png' }} style={styles.flag} />
         </View>
@@ -27,7 +27,7 @@ export default function WelcomeScreen() {
         {/* Top Ornaments */}
         <View style={styles.ornamentContainer}>
            <Image 
-             source={{ uri: 'https://cdn-icons-png.flaticon.com/512/8204/8204364.png' }} // Placeholder for Red Chinese Motif
+             source={{ uri: 'https://cdn-icons-png.flaticon.com/512/8204/8204364.png' }}
              style={styles.ornamentImage}
              resizeMode="contain"
            />
@@ -74,12 +74,8 @@ export default function WelcomeScreen() {
            </TouchableOpacity>
 
            {/* Sign Up - White with Gold Border */}
-           <TouchableOpacity 
-             style={styles.whiteButton}
-             onPress={() => router.push('/signup')}
-           >
+           <TouchableOpacity style={styles.whiteButton} onPress={() => router.push('/signup')}>
               <Text style={styles.whiteButtonText}>Sign Up</Text>
-
               <View style={styles.scallopOverlayLeftWhite} />
               <View style={styles.scallopOverlayRightWhite} />
            </TouchableOpacity>
@@ -88,12 +84,13 @@ export default function WelcomeScreen() {
            <View style={styles.merchantSection}>
               <Text style={styles.merchantText}>You are a Registered Merchant?</Text>
               <TouchableOpacity style={styles.whiteButton}>
-                <Text style={styles.whiteButtonText}>Login using POS Account</Text>
-                <View style={styles.scallopOverlayLeftWhite} />
-                <View style={styles.scallopOverlayRightWhite} />
+                <Text style={styles.whiteButtonText}>Login using POS Account</Text><View style={styles.scallopOverlayLeftWhite} /><View style={styles.scallopOverlayRightWhite} />
               </TouchableOpacity>
+
+
            </View>
         </View>
+
 
       </ScrollView>
     </SafeAreaView>

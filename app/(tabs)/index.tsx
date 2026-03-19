@@ -1,5 +1,8 @@
 import React from 'react';
-import { StyleSheet, ScrollView, SafeAreaView, Platform, StatusBar, View } from 'react-native';
+import { StyleSheet, ScrollView, Platform, StatusBar, View } from 'react-native';
+
+import { SafeAreaView } from 'react-native-safe-area-context';
+
 import { Header } from '@/components/features/home/Header';
 import { HomeHero } from '@/components/features/home/HomeHero';
 import { Calculator } from '@/components/features/home/Calculator';
